@@ -1,18 +1,18 @@
 function collect_ratings() {
   const ratings = {
-    average: 0,
     count: 0,
     sum: 0,
+    average: 0,
   };
   const elements = document.querySelectorAll('.rating');
+  let rating = 0;
 
   elements.forEach(element => {
-    const rating = parseInt(element.id.replace('star', ''));
-
+    rating = parseInt(element.id.replace('star', ''));
     ratings.count += parseInt(element.value);
     ratings.sum += rating * parseInt(element.value);
 
-    if(ratings.count > 0) {
+    if(ratings.count !== 0) {
       ratings.average = ratings.sum / ratings.count;
     }
   });
